@@ -1,0 +1,22 @@
+<div class="listContainer">
+  <div class="firstContainer">
+    <img class="listImg" [src]="animeData.images.jpg.image_url" alt="picture" />
+    <div class="secondContainer">
+      <span class="title">{{ animeData.name }}</span>
+      <div class="nickNameContainer">
+        @for (nickname of animeData.nicknames; track $index) {
+        <span>
+          {{ nickname }}
+        </span>
+        }
+      </div>
+    </div>
+  </div>
+  <div class="listFavorite">
+    <img src="assets/icons/favorite.svg" alt="favorite" />
+    <span>{{ animeData.favorites }}</span>
+  </div>
+  <button class="openLinkBtn" (click)="onView(animeData.url)">
+    <img src="assets/icons/arrow_forward.svg" alt="" />
+  </button>
+</div>

@@ -1,0 +1,22 @@
+<div class="container">
+  <h1 align="center">Search Anime Character</h1>
+  <div class="cstContainer">
+    <img src="assets/icons/search.svg" alt="" />
+    <input type="text" (input)="onSearchAnime($event)" />
+  </div>
+  <div class="dataMessage">
+    Total <strong>{{ totalData | number : "1.0-1" }}</strong> matching anime
+    character found
+  </div>
+  <div class="pageContainer">
+    <button (click)="onChangePage('prev')">Previous</button>
+    <button (click)="onChangePage('next')">Next</button>
+  </div>
+  <div class="dataContainer">
+    @if (animeData) { @for (data of animeData; track $index) {
+    <app-list [animeData]="data" (redirect)="viewAnimePage($event)"></app-list>
+    } @empty {
+    <div class="dataMessage">No Result Found!</div>
+    }}
+  </div>
+</div>
